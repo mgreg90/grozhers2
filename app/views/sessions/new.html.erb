@@ -1,6 +1,6 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
-<%= form_for @user, url: user_create_path do |u| %>
+<%= form_for @user, url: sessions_create_path do |u| %>
 
   <%= u.label :username %>
   <%= u.text_field :username %>

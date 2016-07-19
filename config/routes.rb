@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'group/create'
+  post 'group/create'
   get 'group/new'
-  get 'group/show'
+  get 'group/show/:id' => 'group#show', as: 'group_show'
   get 'group/index'
+  get 'group/has_group' => 'group#has_group'
 
   get 'user/new'
   post 'user/create'

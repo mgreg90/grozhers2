@@ -7,9 +7,9 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to group_index_path
+      redirect_to group_show_path(@group)
     else
-      
+      redirect_to user_new_path
     end
   end
 
