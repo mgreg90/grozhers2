@@ -19,7 +19,8 @@ class GroupController < ApplicationController
   end
 
   def show
-    @group = Group.find(params)
+    @group = @user.group
+    # Left off here! Let's make this work!
   end
 
   def index

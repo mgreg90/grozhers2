@@ -5,9 +5,17 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # p "*" * 50
+    # p "user: "
+    # p @user
+    # p "group: "
+    # p @group
+    # p "params: "
+    # p user_params
+    # p "*" * 50
     if @user.save
       session[:user_id] = @user.id
-      redirect_to group_show_path(@group)
+      redirect_to group_has_group_path
     else
       redirect_to user_new_path
     end
