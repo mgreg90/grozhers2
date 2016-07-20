@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'items/new'
+
+  get 'items/create'
+
+  get 'items/destroy'
+
   post 'group/create'
   get 'group/new'
   get 'group/show/:id' => 'group#show', as: 'group_show'

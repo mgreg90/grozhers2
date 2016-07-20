@@ -1,22 +1,32 @@
-<h1>Group#show</h1>
-<p>Find me in app/views/group/show.html.erb</p>
-
-<table class="table table-striped">
-  <tr>
-    <th>Item</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
-  <% @items.each do |i| %>
-  <tr>
-    <td class="col-md-2"><%= i.name %></td>
-    <td class="col-md-2"><%= i.description %></td>
-    <td class="col-md-2"><%= i.price %></td>
-  </tr>
-  <% end %>
-</table>
-
-
-<%= button_to 'Join', group_index_path %>
-
-<%= button_to 'Create', group_new_path %>
+<div class="group-page-container">
+  <div class="group-info">
+    <div class="col-md-6">
+      <h1><%= @group.name %></h1>
+    </div>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="disabled"><a href="#">All Users: for <%= @group.name %></a></li>
+      <% @group.users.each do |u| %>
+      <li role="presentation"><%= link_to u.username %></li>
+      <% end %>
+    </ul>
+    <div class="col-md-6">
+    </div>
+    <%= button_to 'Add Item', items_new_path, class: "btn btn-default" %>
+  </div>
+  <div>
+  <table class="table table-striped">
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Purchased</th>
+    </tr>
+    <% @items.each do |i| %>
+    <tr>
+      <td class="col-md-8"><%= i.name %> - <%= i.description %></td>
+      <td class="col-md-2"><%= i.price %></td>
+      <td class="col-md-2"><%= i.done %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
