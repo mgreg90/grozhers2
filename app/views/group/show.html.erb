@@ -3,15 +3,15 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Name</th>
+    <th>Item</th>
     <th>Description</th>
     <th>Price</th>
   </tr>
   <% @items.each do |i| %>
   <tr>
-    <td><%= i.name %></td>
-    <td><%= i.description %></td>
-    <td><%= i.price %></td>
+    <td class="col-md-2"><%= i.name %></td>
+    <td class="col-md-2"><%= i.description %></td>
+    <td class="col-md-2"><%= i.price %></td>
   </tr>
   <% end %>
 </table>

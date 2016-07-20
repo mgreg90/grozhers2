@@ -8,6 +8,8 @@
 u1 = User.create(username: 'Admin1', password: '123456')
 g1 = Group.create(name: 'Admin')
 i1 = Item.create(name: 'first item', description: 'seeds.rb line 11')
+g1.users << u1
+g1.items << i1
 puts "*" * 50
 puts "So far so good!"
 puts "*" * 50
