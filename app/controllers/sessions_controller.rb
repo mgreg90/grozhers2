@@ -25,6 +25,9 @@ class SessionsController < ApplicationController
     redirect_to sessions_new_path
   end
 
+  def navbar
+  end
+
   private
   def sessions_params
     params.require(:user).permit(:username, :password)
