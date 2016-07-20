@@ -1,6 +1,22 @@
 <h1>Group#show</h1>
 <p>Find me in app/views/group/show.html.erb</p>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  <% @items.each do |i| %>
+  <tr>
+    <td><%= i.name %></td>
+    <td><%= i.description %></td>
+    <td><%= i.price %></td>
+  </tr>
+  <% end %>
+</table>
+
+
 <%= link_to 'Join', group_index_path %>
 
 <%= link_to 'Create', group_new_path %>
