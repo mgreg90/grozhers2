@@ -1,8 +1,9 @@
 class GroupController < ApplicationController
 
   def has_group
-    redirect_to group_new_path and return if @group.nil?
-    redirect_to group_show_path and return if @group
+    @user = User.find(session[:user_id]) if session[:user_id]
+    redirect_to group_new_path and return if @user.groups.length == 0
+    redirect_to group_show_path(@user.groups.first) and return
   end
 
   def new
@@ -19,7 +20,7 @@ class GroupController < ApplicationController
   end
 
   def show
-    @group = @user.group
+    @group = Group.find(params[:id])
     # Left off here! Let's make this work!
   end
 
@@ -31,6 +32,6 @@ class GroupController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:id, :name)
   end
 end
