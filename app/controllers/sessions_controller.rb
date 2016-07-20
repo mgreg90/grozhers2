@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def homepage
     @user = User.find(session[:user_id]) if session[:user_id]
     redirect_to sessions_new_path and return if @user.nil?
-    redirect_to group_new_path and return if @user.has_group?
+    redirect_to group_new_path and return if !@user.has_group?
     redirect_to group_show_path(@user.groups.first) and return
   end
 
