@@ -24,7 +24,10 @@
     <tr>
       <td class="col-md-8"><%= i.name %> - <%= i.description %></td>
       <td class="col-md-2"><%= i.price %></td>
-      <td class="col-md-2"><%= i.done %></td>
+      <td class="col-md-2">
+        <%= button_to "Purchased", {controller: 'group', method: :post,
+                                    item: i, group: params[:id]} %>
+      </td>
     </tr>
     <% end %>
   </table>

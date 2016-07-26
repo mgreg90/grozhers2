@@ -3,7 +3,7 @@ class GroupController < ApplicationController
   def has_group
     @user = User.find(session[:user_id]) if session[:user_id]
     redirect_to group_new_path and return if @user.groups.length == 0
-    redirect_to group_show_path(@user.groups.first) and return
+    redirect_to group_item_path(@user.groups.first) and return
   end
 
   def new
@@ -13,7 +13,7 @@ class GroupController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_show_path(@group)
+      redirect_to group_item_path(@group)
     else
       redirect_to group_new_path
     end
@@ -29,6 +29,10 @@ class GroupController < ApplicationController
     @groups = Group.all
     # Write code that handles no group situation
     # Otherwise shows items in group
+  end
+
+  def drop_item(item_id)
+    @group.drop_item(item_id)
   end
 
   private
