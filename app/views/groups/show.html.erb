@@ -25,7 +25,7 @@
       <td class="col-md-8"><%= i.name %> - <%= i.description %></td>
       <td class="col-md-2"><%= i.price %></td>
       <td class="col-md-2">
-        <%= button_to "Purchased", {controller: 'group', method: :post,
+        <%= button_to "Purchased", {controller: 'groups', method: :post,
                                     item: i, group: params[:id]} %>
       </td>
     </tr>
