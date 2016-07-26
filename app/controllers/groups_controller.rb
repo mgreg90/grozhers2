@@ -1,4 +1,4 @@
-class GroupController < ApplicationController
+class GroupsController < ApplicationController
 
   def has_group
     @user = User.find(session[:user_id]) if session[:user_id]
