@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def homepage
     @user = User.find(session[:user_id]) if session[:user_id]
-    redirect_to sessions_new_path and return if @user.nil?
+    redirect_to new_session_path and return if @user.nil?
     redirect_to group_new_path and return if !@user.has_group?
     redirect_to group_path(@user.groups.first.id) and return
   end
@@ -14,15 +14,15 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to group_has_group_path
+      redirect_to user_has_group_path(@user)
     else
-      redirect_to sessions_new_path
+      redirect_to new_session_path
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to sessions_new_path
+    redirect_to new_session_path
   end
 
   def navbar

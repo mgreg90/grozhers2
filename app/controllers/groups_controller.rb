@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   def has_group
     @user = User.find(session[:user_id]) if session[:user_id]
     redirect_to group_new_path and return if @user.groups.length == 0
-    redirect_to group_item_path(@user.groups.first) and return
+    redirect_to group_path(@user.groups.first) and return
   end
 
   def new
@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_item_path(@group)
+      redirect_to group_path(@group)
     else
       redirect_to group_new_path
     end

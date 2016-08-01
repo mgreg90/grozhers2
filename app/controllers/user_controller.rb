@@ -17,7 +17,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect_to group_has_group_path
     else
-      redirect_to user_new_path
+      redirect_to new_user_path
     end
   end
 
