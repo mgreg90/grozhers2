@@ -31,8 +31,11 @@ class GroupsController < ApplicationController
     # Otherwise shows items in group
   end
 
-  def drop_item(item_id)
-    @group.drop_item(item_id)
+  def drop_item
+    @group = Group.find(params[:group_id])
+    @item = Item.find(params[:id])
+    @group.items.delete(@item)
+    redirect_to group_path(@group)
   end
 
   private
