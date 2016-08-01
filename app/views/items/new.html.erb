@@ -1,2 +1,20 @@
 <h1>Items#new</h1>
 <p>Find me in app/views/items/new.html.erb</p>
+
+<%= form_for @item, url: group_items_path do |u| %>
+
+  <%= u.label :name %>
+  <%= u.text_field :name %>
+
+  <%= u.label :description %>
+  <%= u.text_field :description %>
+
+  <%= u.label :price %>
+  <%= u.text_field :price %>
+
+  <%= u.submit "Submit" %>
+
+<% end %>
+
+<br>
+<%= button_to 'Sign Up', new_user_path %>

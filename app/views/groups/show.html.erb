@@ -11,7 +11,7 @@
     </ul>
     <div class="col-md-6">
     </div>
-    <%= button_to 'Add Item', new_group_item_path(group_id: @group.id), class: "btn btn-default" %>
+    <%= button_to 'Add Item', new_group_item_path(group_id: @group.id), class: "btn btn-default", method: 'get' %>
   </div>
   <div>
   <table class="table table-striped">
