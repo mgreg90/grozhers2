@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  autocomplete :item, :name
 
   def has_group
     @user = User.find(session[:user_id]) if session[:user_id]

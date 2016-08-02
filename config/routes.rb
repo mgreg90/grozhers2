@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources 'groups' do
     resources 'items'
+    get :autocomplete_item_name, on: :collection
   end
   resources 'sessions'
   resources 'users'
