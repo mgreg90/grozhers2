@@ -40,6 +40,15 @@ class GroupsController < ApplicationController
     redirect_to group_path(@group)
   end
 
+  def add_member
+    @group = Group.find_by(name: group_params[:name])
+    @user = User.find(session[:user_id])
+    @group.users << @user
+    if @group.save
+      redirect_to group_path(@group)
+    end
+  end
+
   private
   def group_params
     params.require(:group).permit(:id, :name)

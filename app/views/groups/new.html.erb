@@ -11,4 +11,12 @@
   <% end %>
 </div>
 <div>
+  <%= form_for @group, url: groups_join_path do |g| %>
+
+    <%= g.label :name %>
+    <%= g.text_field :name %>
+
+    <%= g.submit 'Submit' %>
+
+  <% end %>
 </div>
