@@ -23,6 +23,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @item = Item.new
     @items = @group.items
     # Left off here! Let's make this work!
   end
