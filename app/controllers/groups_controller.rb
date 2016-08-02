@@ -49,6 +49,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def drop_member
+    @group = Group.find(params[:group_id])
+    @user = User.find(session[:user_id])
+    if @group.users.delete(@user)
+      redirect_to new_group_path
+    end
+  end
+
   private
   def group_params
     params.require(:group).permit(:id, :name)
