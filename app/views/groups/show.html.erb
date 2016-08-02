@@ -9,10 +9,10 @@
           </small>
         </h1>
       </div>
-      <div class="col-md-12 text-center">
-        <div class="panel panel-default">
+      <div class="text-center">
+        <div class="well well-sm col-md-offset-1 col-md-10">
           <div class="">
-            <h4><small>Members</h4></small>
+            <h4>Members</h4>
             <ul class="nav nav-pills">
               <% @group.users.each do |u| %>
               <li role="presentation"><%= link_to u.username %></li>
@@ -23,50 +23,51 @@
       </div>
     </div>
     <div class="col-md-6">
-      <%= form_for @item, url: group_items_path(group_id: @group.id), html: { class: "form-horizontal" } do |u| %>
-      <div class="form-group">
-        <%= u.label :name, class: "control-label col-md-3 col-sm-2 col-xs-2 col-xs-offset-1" %>
-        <div class="col-md-6 col-sm-7 col-xs-6">
-          <%= u.text_field :name, class: "form-control" %>
-        </div>
+      <div class="well well-sm col-md-offset-1 col-md-10">
+        <%= form_for @item, url: group_items_path(group_id: @group.id), html: { class: "form-horizontal" } do |u| %>
+          <div class="form-group">
+            <%= u.label :name, class: "control-label col-md-3 col-sm-2 col-xs-2 col-xs-offset-1" %>
+            <div class="col-md-6 col-sm-7 col-xs-6">
+              <%= u.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group hidden-xs hidden-sm">
+            <%= u.label :description, class: "control-label col-md-3 col-xs-offset-1" %>
+            <div class="col-md-6 col-sm-6">
+              <%= u.text_field :description, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group hidden-xs hidden-sm">
+            <%= u.label :price, class: "control-label col-md-3 col-xs-offset-1" %>
+            <div class="col-md-6 col-sm-6">
+              <%= u.text_field :price, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="text-center">
+              <%= u.submit "Submit", class: "btn btn-default" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <div class="form-group hidden-xs hidden-sm">
-        <%= u.label :description, class: "control-label col-md-3 col-xs-offset-1" %>
-        <div class="col-md-6 col-sm-6">
-          <%= u.text_field :description, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group hidden-xs hidden-sm">
-        <%= u.label :price, class: "control-label col-md-3 col-xs-offset-1" %>
-        <div class="col-md-6 col-sm-6">
-          <%= u.text_field :price, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="text-center">
-          <%= u.submit "Submit", class: "btn btn-default" %>
-        </div>
-      </div>
-
-      <% end %>
     </div>
   </div>
   <div>
-  <table class="table table-striped table-responsive">
-    <tr>
-      <th>Item</th>
-      <th class="hidden-xs">Price</th>
-      <th class="purchase-button">Purchased?</th>
-    </tr>
-    <% @items.each do |i| %>
-    <tr>
-      <td class="col-md-8"><%= i.name %><%= " - " if i.description && i.description.length > 0 %><%= i.description %></td>
-      <td class="col-md-2 hidden-xs"><%= i.price %></td>
-      <td class="col-md-2 purchase-button">
-        <%= button_to "Purchased", drop_group_item_path(@group, i), class: "btn btn-default" %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+    <table class="table table-striped table-responsive">
+      <tr>
+        <th>Item</th>
+        <th class="hidden-xs">Price</th>
+        <th class="purchase-button">Purchased?</th>
+      </tr>
+      <% @items.each do |i| %>
+      <tr>
+        <td class="col-md-7 col-md-offset-1"><%= i.name %><%= " - " if i.description && i.description.length > 0 %><%= i.description %></td>
+        <td class="col-md-2 hidden-xs"><%= i.price %></td>
+        <td class="col-md-2 purchase-button">
+          <%= button_to "Purchased", drop_group_item_path(@group, i), class: "btn btn-default" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>
