@@ -11,20 +11,30 @@
       </ul>
     </div>
     <div class="col-md-6">
-      <%= form_for @item, url: group_items_path(group_id: @group.id) do |u| %>
-      <div class="">
-        <%= u.label :name %>
-        <%= u.text_field :name %>
+      <%= form_for @item, url: group_items_path(group_id: @group.id), html: { class: "form-horizontal" } do |u| %>
+      <div class="form-group">
+        <%= u.label :name, class: "control-label col-md-3 col-sm-3" %>
+        <div class="col-md-6 col-sm-6">
+          <%= u.text_field :name, class: "form-control" %>
+        </div>
       </div>
-      <div class="hidden-xs hidden-sm">
-        <%= u.label :description %>
-        <%= u.text_field :description %>
+      <div class="form-group hidden-xs hidden-sm">
+        <%= u.label :description, class: "control-label col-md-3" %>
+        <div class="col-md-6 col-sm-6">
+          <%= u.text_field :description, class: "form-control" %>
+        </div>
       </div>
-      <div class="hidden-xs hidden-sm">
-        <%= u.label :price %>
-        <%= u.text_field :price %>
+      <div class="form-group hidden-xs hidden-sm">
+        <%= u.label :price, class: "control-label col-md-3" %>
+        <div class="col-md-6 col-sm-6">
+          <%= u.text_field :price, class: "form-control" %>
+        </div>
       </div>
-      <%= u.submit "Submit", class: "btn btn-default" %>
+      <div class="form-group">
+        <div class="col-md-offset-4 col-md-6">
+          <%= u.submit "Submit", class: "btn btn-default" %>
+        </div>
+      </div>
 
       <% end %>
     </div>
