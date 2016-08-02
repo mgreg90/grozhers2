@@ -1,16 +1,18 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
-<%= form_for @user, url: sessions_path do |u| %>
+<div class="centered-container">
+  <h1>Sign In</h1>
+  <%= form_for @user, url: sessions_path do |u| %>
+    <div>
+      <%= u.label :username %>
+      <%= u.text_field :username %>
+    </div>
+    <div>
+      <%= u.label :password %>
+      <%= u.password_field :password %>
+    </div>
+    <%= u.submit "Submit" %>
 
-  <%= u.label :username %>
-  <%= u.text_field :username %>
+  <% end %>
 
-  <%= u.label :password %>
-  <%= u.password_field :password %>
-
-  <%= u.submit "Submit" %>
-
-<% end %>
-
-<br>
-<%= button_to 'Sign Up', new_user_path, method: 'get' %>
+  <br>
+  <%= button_to 'Sign Up', new_user_path, method: 'get' %>
+</div>
