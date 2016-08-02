@@ -1,0 +1,14 @@
+@media only screen and (max-width: 768px) {
+  
+}
+
+.group-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.purchase-button {
+  display: flex!important;
+  justify-content: center;
+}
