@@ -29,6 +29,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <% if session[:user_id] %>
+          <p class="navbar-text"><%= "Welcome #{User.find(session[:user_id]).username}!" %></p>
             <li><%= link_to 'Sign Out', session_path(session[:user_id]), {method: :delete} %></li>
           <% else %>
             <li><%= link_to 'Sign In', new_session_path %></li>
