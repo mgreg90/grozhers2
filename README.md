@@ -12,7 +12,7 @@ used the app before
 / Join Group** page.
 3. The user should either create a new group or join an already existing group.
 4. The user will then be taken to their group's page.
-  * The group's page show's the list of items (which can be taken off the list by
+  * The group's page shows the list of items (which can be taken off the list by
     clicking **Purchased**).
   * There is also a form for adding items to the list
 
