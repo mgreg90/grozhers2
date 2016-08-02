@@ -1,16 +1,22 @@
-<h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
-<%= form_for @user, url: users_path do |u| %>
-
-  <%= u.label :username %>
-  <%= u.text_field :username %>
-
-  <%= u.label :password %>
-  <%= u.password_field :password %>
-
-  <%= u.submit "Submit" %>
-
+<div class="well col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+  <h1>Register</h1>
+  <%= form_for @user, url: users_path do |u| %>
+  <div class="form-group row">
+    <%= u.label :username, class: "col-form-label col-md-4" %>
+    <div class="col-md-8">
+      <%= u.text_field :username, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= u.label :password, class: "col-form-label col-md-4" %>
+    <div class="col-md-8">
+      <%= u.password_field :password, class: "form-control" %>
+    </div>
+  </div>
+  <%= u.submit "Submit", class: "btn btn-default" %>
+</div>
 <% end %>
-
-<br>
-<%= button_to 'Log In', new_session_path %>
+<div class="col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 col-xs-2 col-xs-offset-4">
+  <h6>Already registered?</h6>
+  <%= button_to 'Log In', new_session_path, method: 'get', class: "btn btn-default" %>
+</div>
