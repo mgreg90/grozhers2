@@ -17,13 +17,13 @@
   <table class="table table-striped table-responsive">
     <tr>
       <th>Item</th>
-      <th>Price</th>
+      <th class="hidden-xs">Price</th>
       <th class="purchase-button">Purchased?</th>
     </tr>
     <% @items.each do |i| %>
     <tr>
       <td class="col-md-8"><%= i.name %><%= " - " if i.description && i.description.length > 0 %><%= i.description %></td>
-      <td class="col-md-2"><%= i.price %></td>
+      <td class="col-md-2 hidden-xs"><%= i.price %></td>
       <td class="col-md-2 purchase-button">
         <%= button_to "Purchased", drop_group_item_path(@group, i), class: "btn btn-default" %>
       </td>
