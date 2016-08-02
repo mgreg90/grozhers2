@@ -22,7 +22,7 @@
     </tr>
     <% @items.each do |i| %>
     <tr>
-      <td class="col-md-8"><%= i.name %> - <%= i.description %></td>
+      <td class="col-md-8"><%= i.name %><%= " - " if i.description && i.description.length > 0 %><%= i.description %></td>
       <td class="col-md-2"><%= i.price %></td>
       <td class="col-md-2">
         <%= button_to "Purchased", drop_group_item_path(@group, i) %>

@@ -4,10 +4,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    if Item.exists?(name: item_params[:name])
+      @item = Item.find_by(name: item_params[:name])
+    else
+      @item = Item.new(item_params)
+    end
     @group = Group.find(params[:group_id])
+    @group.items << @item
     if @item.save
-      @group.items << @item
       redirect_to group_path(@group)
     else
       redirect_to new_group_item_path
